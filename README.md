@@ -16,6 +16,8 @@ After this, simply use make to compile the tools in this repository: `make`. You
 
 You can install these with your package manager in most distributions. For example in Debian/Ubuntu/etc.: `apt-get install osslsigncode gnu-efi efitools efivar`
 
+You will also need the EfiCompressor Python library which you can install for example with pip: `pip3 install -r ./uefi_decompress/requirements.txt`
+
 ## 1. Dump the VBIOS ROM from your card
 Find your card within the pci subsystem, and use the following commands:
 ```
