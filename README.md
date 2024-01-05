@@ -13,7 +13,8 @@ After this, simply use make to compile the tools in this repository: `make`. You
 * gnu-efi
 * efitools
 * efivar
-You can install these with your package manager in most ditributions. For example in Debian/Ubuntu/etc.: `apt-get install osslsigncode gnu-efi efitools efivar`
+
+You can install these with your package manager in most distributions. For example in Debian/Ubuntu/etc.: `apt-get install osslsigncode gnu-efi efitools efivar`
 
 ## 1. Dump the VBIOS ROM from your card
 Find your card within the pci subsystem, and use the following commands:
@@ -25,7 +26,7 @@ echo 0 > /sys/bus/pci/devices/<DEVICE>/rom
 
 ## 2. Find the EFI image in the ROM
 ```
-./rom-parser/rom-parser vbios.rom | grep "EFI image offset"
+./rom-parser/rom-parser vbios.rom
 ```
 
 Example output:
