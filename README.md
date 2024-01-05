@@ -64,6 +64,11 @@ Calculated message digest : E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495
 ```
 Ideally the two digests are the same.
 
+Depending on your version of `osslsigncode` it might provide no results requiring a CA file. In this case provide any CA file using the `-CAfile` option, for example:
+```
+osslsigncode verify -CAfile /etc/ssl/certs/ca-certificates.crt vbios.efi | grep "message digest"
+```
+
 ## 5. Create an EFI signature list, sign and deliver it as an update payload
 Use the digest from the previous step.
 
