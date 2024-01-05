@@ -43,7 +43,7 @@ Valid ROM signature found @e800h, PCIR offset 1ch
 		EFI: Signature Valid, Subsystem: Boot, Machine: X64
 	Last image
 ```
-The first image is the legacy, while the second one is the EFI ROM. Take note that the EFI ROM is found at `0xe800` and the EFI image within starts at an offset of `0x58`.
+The first image is the legacy, while the second one is the EFI ROM. Take note that the EFI ROM is found at `0xe800` and the EFI image within starts at an offset of `0x58`. Your values may be different.
 
 ## 3. Extract the EFI image and decompress it
 Use the EFI ROM base address and the EFI image offset from the previous step.
@@ -66,6 +66,8 @@ Ideally the two digests are the same.
 
 ## 5. Create an EFI signature list, sign and deliver it as an update payload
 Use the digest from the previous step.
+
+The `GUID` is the signature owner, same as the one used when signing your other signature lists. `PK.key` and `PK.crt` are the platform key secret key and certificate respectively.
 ```
 ./digest-to-efi-sig-list/digest-to-efi-sig-list <DIGEST> vbios.esl
 sign-efi-sig-list -k PK.key -c PK.crt -g <GUID> -a db vbios.esl vbios.db.auth
